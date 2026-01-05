@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>A Gentle Place 🤍</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:'Nunito',sans-serif;
+  background:linear-gradient(120deg,#fff1f5,#eef7ff,#fffbe6);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:30px 16px;
+  text-align:center;
+}
+
+h1{
+  font-family:'Pacifico',cursive;
+  font-size:2.4rem;
+  color:#ff6f91;
+  margin-bottom:8px;
+}
+
+.subtitle{
+  font-size:1.1rem;
+  color:#666;
+  margin-bottom:30px;
+}
+
+/* BIG SIMPLE IMAGE */
+.photo-box{
+  width:100%;
+  max-width:380px;
+  margin:0 auto 35px;
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:0 15px 40px rgba(255,105,135,0.35);
+  animation:softPulse 4s ease-in-out infinite;
+}
+
+.photo-box img{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+@keyframes softPulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.03)}
+}
+
+/* CARDS */
+.card{
+  background:rgba(255,255,255,0.8);
+  border-radius:22px;
+  padding:22px;
+  margin-bottom:26px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.message{
+  font-size:1.05rem;
+  line-height:1.8;
+  color:#444;
+}
+
+.animals{
+  font-size:2.4rem;
+  margin-top:12px;
+}
+
+/* SECRET */
+.secret{
+  margin-top:28px;
+  padding:16px;
+  background:#ffeaf1;
+  border-radius:18px;
+  cursor:pointer;
+  font-weight:600;
+  color:#ff5f8f;
+}
+
+.secret-message{
+  display:none;
+  margin-top:22px;
+  background:#ffffff;
+  padding:22px;
+  border-radius:18px;
+  font-size:1.05rem;
+  line-height:1.9;
+  color:#333;
+  animation:fadeIn 1.1s ease;
+}
+
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(8px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* FLOATING CUTIES */
+.float{
+  position:fixed;
+  bottom:-20px;
+  animation:floatUp 8s linear infinite;
+  opacity:0.75;
+}
+
+@keyframes floatUp{
+  from{transform:translateY(0)}
+  to{transform:translateY(-120vh)}
+}
+
+/* MOBILE TEXT SCALE */
+@media (max-width:480px){
+  h1{font-size:2.1rem}
+  .message{font-size:1rem}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>This Little Space Is For You 🌷</h1>
+  <p class="subtitle">Slow down… everything can wait 🤍</p>
+
+  <!-- BIG PHOTO SECTION -->
+  <div class="photo-box">
+    <img src="images/nini8.jpeg" alt="Her Beautiful Smile">
+  </div>
+
+  <div class="card">
+    <p class="message">
+      You have this soft kind of beauty that feels calm just by existing.  
+      The way you smile, the way you speak, even the quiet moments — everything about you feels gentle and comforting.  
+      In my eyes, you are effortlessly cute, naturally beautiful, and perfectly you.
+    </p>
+    <div class="animals">🐻🌸🐰☁️🐱</div>
+  </div>
+
+  <div class="card">
+    <p class="message">
+      Some people shine loudly.  
+      You glow softly — the kind that makes everything around you feel warmer.  
+      There’s nothing you need to change, nothing you need to fix.  
+      Just being you is already enough.
+    </p>
+    <div class="animals">🧸✨🐼🌷</div>
+  </div>
+
+  <div class="secret" onclick="openSecret()">
+    🤍 Tap gently for something meant only for you 🤍
+  </div>
+
+  <div class="secret-message" id="secretText">
+    When you look at yourself, I hope you see even a fraction of what I see.  
+    I see someone incredibly precious, with a heart that feels safe and a presence that brings calm.  
+    Your small habits, your expressions, your quiet strength — all of it fits together in the most beautiful way.  
+    Even on days when you feel tired or unsure, nothing about you loses its worth.  
+    To me, you are already perfect — not because you try to be, but because you are simply, wonderfully you.
+  </div>
+
+</div>
+
+<script>
+function openSecret(){
+  document.getElementById("secretText").style.display="block";
+}
+
+function floatEmoji(){
+  const emojis=["🐻","🐰","🐱","☁️","🌸","🧸","✨"];
+  const el=document.createElement("div");
+  el.className="float";
+  el.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
+  el.style.left=Math.random()*100+"vw";
+  el.style.fontSize=(18+Math.random()*18)+"px";
+  el.style.animationDuration=(6+Math.random()*4)+"s";
+  document.body.appendChild(el);
+  setTimeout(()=>el.remove(),10000);
+}
+setInterval(floatEmoji,600);
+</script>
+
+</body>
+</html>
